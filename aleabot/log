@@ -1,0 +1,24 @@
+==== v1.0 ====
+UCT
+coef explo=0.5
+oeil=complexe et safe
+1s / move
+5visit before creating node
+no superko only for root
+nb move max in mc simu=200
+
+==== v1.1 ====
+oeil=verif 4 cases
+oeil mis dans les coups légaux
+
+==== v1.1.2 ====
+clear vector instead of empty ...
+new score definition?
+Resign
+
+==== v1.2 ====
+AMAF
+
+
+==== v1.2.1 ====
+No exploration of every moves in UCB

@@ -1,0 +1,22 @@
+probleme fuite mémoire sur plusieurs parties d'affilées
+
+verif proba vic
+
+SVN
+
+noeud terminaux -> preuve
+
+améliorer la rapidité des simus
+
+selection non uniforme des coups dans mc
+
+ajouter pattern
+
+ajouter regles
+
+regarder du coté du nombre de coups max joués dans une simu (optim?)
+
+liste de coups valides dans genmove (ne pas tester à chaque fois)
+
+RAVE
+
