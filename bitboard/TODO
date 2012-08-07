@@ -4,11 +4,19 @@ PLANNING
 TODO LIST
 --------
 
+séparer en 2 parties mogoboard et bitboard
+
+
 definir les classes
 
 testSets
-    se renseigner
-    en choisir un
     ecrire les tests
 
 
+
+DONE
+----
+
+testSets
+    se renseigner
+    en choisir un -> googletest
