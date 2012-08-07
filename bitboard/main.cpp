@@ -8,7 +8,6 @@ using namespace std;
 
 
 
-
 int main(int nb_args, char* args[]) {
 
 #ifdef GTEST
