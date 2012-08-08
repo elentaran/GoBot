@@ -11,7 +11,7 @@ all: $(EXEC)
 
 
 test: clean
-	$(MAKE) $(MAKEFILE) USEGTEST="-DGTEST=1" LIBRARIES+=" -lgtest"
+	$(MAKE) $(MAKEFILE) USEGTEST="-DGTEST=1" LIBRARIES=$(LIBRARIES)" -lgtest"
 
 debug: clean
 	$(MAKE) $(MAKEFILE) DEBUG="-g"
