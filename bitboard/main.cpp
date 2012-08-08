@@ -1,6 +1,6 @@
 // GoBot
 
-#include "GTPengine.h"
+#include "goban.h"
 #ifdef GTEST
 #include "gtest/gtest.h"
 #endif 
@@ -15,9 +15,6 @@ int main(int nb_args, char* args[]) {
     return RUN_ALL_TESTS();
 #endif 
 
-    srand ( time(NULL) );
-    GTPengine global_GTPengine =  GTPengine(nb_args,args);
-    global_GTPengine.launch();
 
     return 1;
 }

@@ -1,8 +1,8 @@
 
-#include "bitboard.h"
+#include "goban.h"
 
 
-BitBoard::BitBoard() {
+Goban::Goban() {
     _size = 9;
     _bigsize = _size + 2;
     _bigArea = _bigsize * _bigsize; 
@@ -11,7 +11,7 @@ BitBoard::BitBoard() {
     clear();
 }
 
-BitBoard::BitBoard(int size) {
+Goban::Goban(int size) {
     _size = size;
     _bigsize = _size + 2;
     _bigArea = _bigsize * _bigsize; 
@@ -21,18 +21,18 @@ BitBoard::BitBoard(int size) {
 
 
 
-void BitBoard::setSize(int size) {
+void Goban::setSize(int size) {
     _size = size;
     _bigsize = _size + 2;
     _bigArea =  _bigsize * _bigsize; 
     clear();
 }
 
-int BitBoard::getSize() {
+int Goban::getSize() {
     return _size;
 }
 
-int BitBoard::moveToInt(string move) {
+int Goban::moveToInt(string move) {
     if (move == "PASS" || move == "pass" || move == "Pass")
         return PASSMOVE;  
 
@@ -54,7 +54,7 @@ int BitBoard::moveToInt(string move) {
     return (j+1) * _bigsize + (i+1);
 }
 
-string BitBoard::intToMove(int location) {
+string Goban::intToMove(int location) {
     if (location == PASSMOVE) {
         return "PASS";
     }
@@ -74,7 +74,7 @@ string BitBoard::intToMove(int location) {
 }
 
 
-int BitBoard::playerToInt(string player) {
+int Goban::playerToInt(string player) {
     char* token = (char *)player.c_str();
     if (token[0] == 'B' or token[0] == 'b')
         return BLACK;
@@ -86,7 +86,7 @@ int BitBoard::playerToInt(string player) {
 }
 
 
-string BitBoard::intToPlayer(int player) {
+string Goban::intToPlayer(int player) {
     if (player == 1)
         return "B";
     if (player == 0)
@@ -96,7 +96,7 @@ string BitBoard::intToPlayer(int player) {
 }
 
 
-void BitBoard::show(){
+void Goban::show(){
     cerr << "coucou" << endl;
 
     for (int j=0; j<_bigsize; j++) {
@@ -108,7 +108,7 @@ void BitBoard::show(){
 
 }
 
-void BitBoard::clear(){
+void Goban::clear(){
     setKomi (DEFAULT_KOMI);
     _ko=PASSMOVE;
     lastPlayedMove=PASSMOVE;
@@ -119,88 +119,88 @@ void BitBoard::clear(){
 
 
 
-void BitBoard::setKomi(float komi){
+void Goban::setKomi(float komi){
     _komi = komi;
 }
 
-void BitBoard::setTimeLeft(int timeLeft){
+void Goban::setTimeLeft(int timeLeft){
     _timeLeft = timeLeft;
 }
 
-void BitBoard::set_playerTurn(int player) {
+void Goban::set_playerTurn(int player) {
     _isBlackTurn = player;
 }
 
-int BitBoard::get_playerTurn() {
+int Goban::get_playerTurn() {
     return _isBlackTurn;
 }
 
 
-bool BitBoard::is_legal(int location) {
+bool Goban::is_legal(int location) {
 
     return true;
 }
 
-bool BitBoard::is_suicide(int v) {
+bool Goban::is_suicide(int v) {
     return true;
 }
 
 
-void BitBoard::play(int player, int move) {
+void Goban::play(int player, int move) {
 
 
 }
 
-void BitBoard::processNewNeighborhood(int newLocation, int oldLocation) {
+void Goban::processNewNeighborhood(int newLocation, int oldLocation) {
 
 }
 
 
 
-void BitBoard::removeChain (int location) {
+void Goban::removeChain (int location) {
 
 }
 
 
-void BitBoard::placeStone (int location) {
+void Goban::placeStone (int location) {
 
 }
 
 
-void BitBoard::removeStone (int location) {
+void Goban::removeStone (int location) {
 
 }
 
-void BitBoard::mergeChains (int baseChainLocation, int newChainLocation) {
+void Goban::mergeChains (int baseChainLocation, int newChainLocation) {
 
 }
 
-int BitBoard::getFreeNeighborhood(int location) {
+int Goban::getFreeNeighborhood(int location) {
 
     return 0;
 }
 
-bool BitBoard::isOneLibertyOfChain(int location, int localChainId) {
+bool Goban::isOneLibertyOfChain(int location, int localChainId) {
     return false;
 }
 
 
 // All the stones are considered to be alive
 // Score is from the point of view of BLACK
-float BitBoard::score () {
+float Goban::score () {
 
     return 0;
 }
 
-int* BitBoard::getFreeLocations() {
+int* Goban::getFreeLocations() {
     return NULL;
 }
 
-int BitBoard::getNbFreeLocations() {
-    return NULL;
+int Goban::getNbFreeLocations() {
+    return 0;
 }
 
-vector<int> BitBoard::getLegalLocations() {
+vector<int> Goban::getLegalLocations() {
 
     vector<int> res;
 
@@ -210,11 +210,11 @@ vector<int> BitBoard::getLegalLocations() {
 
 
 
-bool BitBoard::isTerminal() {
+bool Goban::isTerminal() {
     return (_nbPass == 2);
 }
 
-int BitBoard::getNbPass() {
+int Goban::getNbPass() {
     return _nbPass;
 }
 

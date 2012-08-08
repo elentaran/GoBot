@@ -11,20 +11,22 @@ using namespace std;
 
 #define WHITE 0
 #define BLACK 1
+#define EMPTY 2
+#define EDGE 3
 
 #define PASSMOVE -1
 #define RESIGN -2
 
 #define DEFAULT_KOMI 6.5
 
-#define BitBoardKey uint*
+#define GobanKey uint*
 
 
-class BitBoard {
+class Goban {
 
  public:
-  BitBoard();
-  BitBoard(int size);
+  Goban();
+  Goban(int size);
   void play(int player, int move);
   void setSize(int size);
   int getSize();
