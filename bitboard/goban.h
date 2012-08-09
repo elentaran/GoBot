@@ -19,7 +19,6 @@ using namespace std;
 
 #define DEFAULT_KOMI 6.5
 
-#define GobanKey uint*
 
 
 class Goban {
@@ -27,19 +26,20 @@ class Goban {
  public:
   Goban();
   Goban(int size);
+
+  // usefull functions :)
   void play(int player, int move);
-  void setSize(int size);
-  int getSize();
   void show();
+  float score ();
+  vector<int> getLegalLocations();
   void clear();
-  void setKomi(float komi);
-  void setTimeLeft(int timeLeft);
 
 
+  // internal functions
+ private:
   void removeChain (int location);
   void placeStone (int location);
   void removeStone (int location);
-  float score ();
   void mergeChains (int baseChainLocation, int newChainLocation);
   void processNewNeighborhood(int newLocation, int oldLocation);
   int getFreeNeighborhood(int location);
@@ -52,32 +52,35 @@ class Goban {
   string intToPlayer(int player);
   bool is_legal(int location);
   bool is_suicide(int v);
-    
-  bool isTerminal();
-
-  void set_playerTurn(int player);
-  int get_playerTurn();
-
-  int* getFreeLocations();
-  vector<int> getLegalLocations();
-  int _bigArea;
-  int getNbFreeLocations();
-
-  int getNbPass();
 
 
+ public:
+
+  //getters
+  int getSize() { return _size;};
+  float getKomi() { return _komi;};
+  int getTimeLeft() { return _timeLeft;};
+  int getKo() { return _ko;};
+  int getNbPass() { return _nbPass;};
+  int get_playerTurn() { return _isBlackTurn;};
+  int getLastPlayedMove() { return _lastPlayedMove;};
+
+  //setters
+  void setSize(int size) { _size = size; clear(); }
+  void setKomi(float komi){ _komi = komi; }
+  void setTimeLeft(int timeLeft){ _timeLeft = timeLeft; }
+  void set_playerTurn(int player) { _isBlackTurn = player; }
+
+ 
+ 
  private:
   int _size;
-  int _bigsize;
   float _komi;
   int _timeLeft;
   int _ko;
   int _nbPass;
   int _isBlackTurn;
-  int lastPlayedMove;
-
-  // describe the Board
-
+  int _lastPlayedMove;
 
 
 };

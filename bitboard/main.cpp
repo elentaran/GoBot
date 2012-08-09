@@ -15,6 +15,7 @@ int main(int nb_args, char* args[]) {
     return RUN_ALL_TESTS();
 #endif 
 
+    cerr << "just a board" << endl;
 
     return 1;
 }

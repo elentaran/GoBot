@@ -4,14 +4,11 @@ PLANNING
 TODO LIST
 --------
 
-créer un premier test qui marche pour refboat
 
-supprimer l'ancien goban
+modifier nouveau goban pour avoir juste des fonctions vides
 
-ajouter le nouveau avec fonction min pour que ca compile
+lister les tests
 
-
-definir les classes
 
 testSets
     ecrire les tests
@@ -27,3 +24,8 @@ testSets
 
 07/08/12
 séparer en 2 parties mogoboard et bitboard
+
+08/08/12
+supprimer l'ancien goban
+créer un premier test qui marche pour refboat
+
