@@ -14,6 +14,11 @@ TEST(testCrash,basicMove) {
 }
 
 // TODO
+TEST(testPlay, comprehensionInput) {
+
+}
+
+// TODO
 TEST(testPlay,join2groups) {
 
 }
