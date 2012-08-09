@@ -5,13 +5,13 @@ HD=$(wildcard *.h)
 OBJ=$(SRC:.cpp=.o)
 HEADERPATH=-Igtest
 LIBPATH=-Lgtest
-LIBRARIES=-lgtest -lpthread
+LIBRARIES=-lpthread
 
 all: $(EXEC)
 
 
 test: clean
-	$(MAKE) $(MAKEFILE) USEGTEST="-DGTEST=1"
+	$(MAKE) $(MAKEFILE) USEGTEST="-DGTEST=1" LIBRARIES=$(LIBRARIES)" -lgtest"
 
 debug: clean
 	$(MAKE) $(MAKEFILE) DEBUG="-g"
