@@ -7,6 +7,7 @@ TODO LIST
 changer le git pour avoir un seul libgtest + de quoi le creer
 bonus: creer libgtest dans le makefile s'il existe pas
 
+
 lister les tests
 
 
@@ -31,3 +32,4 @@ créer un premier test qui marche pour refboat
 
 09/08/12
 modifier nouveau goban pour avoir juste des fonctions vides
+makefile: make test lance les tests

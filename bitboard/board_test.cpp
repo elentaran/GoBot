@@ -24,6 +24,13 @@ TEST(testPlay, comprehensionInput) {
 }
 
 // TODO
+TEST(testPlay, legalMove) {
+    Goban testGoban = Goban(9);
+//    testGoban.play(WHITE,"A1");
+//    EXPECT_FALSE(testGoban.isLegal("A1"));
+}
+
+// TODO
 TEST(testPlay,join2groups) {
 
 }

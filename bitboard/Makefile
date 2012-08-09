@@ -10,8 +10,9 @@ LIBRARIES=-lpthread
 all: $(EXEC)
 
 
-test: clean
-	$(MAKE) $(MAKEFILE) USEGTEST="-DGTEST=1" LIBRARIES=$(LIBRARIES)" -lgtest"
+test: 
+	$(MAKE) $(MAKEFILE) USEGTEST="-DGTEST=1" LIBRARIES=$(LIBRARIES)" -lgtest" 
+	./$(EXEC)
 
 debug: clean
 	$(MAKE) $(MAKEFILE) DEBUG="-g"
