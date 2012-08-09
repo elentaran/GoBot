@@ -29,9 +29,9 @@ class Goban {
 
   // usefull functions :)
   void play(int player, int move);
+  vector<int> getLegalLocations();
   void show();
   float score ();
-  vector<int> getLegalLocations();
   void clear();
 
 
@@ -46,10 +46,6 @@ class Goban {
   bool isOneLibertyOfChain(int location, int localChainId);
   bool isOnBoard(int location);
 
-  int moveToInt(string move);
-  string intToMove(int location);
-  int playerToInt(string player); 
-  string intToPlayer(int player);
   bool is_legal(int location);
   bool is_suicide(int v);
 

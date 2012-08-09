@@ -17,53 +17,29 @@ Goban::Goban(int size) {
 
 
 
+void Goban::play(int player, int move) {
 
 
-int Goban::moveToInt(string move) {
-    if (move == "PASS" || move == "pass" || move == "Pass")
-        return PASSMOVE;  
-
-    return 1;
-}
-
-string Goban::intToMove(int location) {
-    if (location == PASSMOVE) {
-        return "PASS";
-    }
-    if (location == RESIGN) {
-        return "RESIGN";
-    }
-
-    return "PASS";
 }
 
 
-int Goban::playerToInt(string player) {
-    char* token = (char *)player.c_str();
-    if (token[0] == 'B' or token[0] == 'b')
-        return BLACK;
-    if (token[0] == 'W' or token[0] == 'w')
-        return WHITE;
+vector<int> Goban::getLegalLocations() {
 
-    cerr << "problem with player name" << endl;
-    assert(0);
+    vector<int> res;
+    return res;
 }
-
-
-string Goban::intToPlayer(int player) {
-    if (player == 1)
-        return "B";
-    if (player == 0)
-        return "W";
-    cerr << "player non existant"<< endl;
-    assert(0);
-}
-
 
 void Goban::show(){
     cerr << "coucou" << endl;
-
 }
+
+// All the stones are considered to be alive
+// Score is from the point of view of BLACK
+float Goban::score () {
+
+    return 0;
+}
+
 
 void Goban::clear(){
     setKomi (DEFAULT_KOMI);
@@ -84,11 +60,6 @@ bool Goban::is_suicide(int v) {
     return true;
 }
 
-
-void Goban::play(int player, int move) {
-
-
-}
 
 void Goban::processNewNeighborhood(int newLocation, int oldLocation) {
 
@@ -115,29 +86,10 @@ void Goban::mergeChains (int baseChainLocation, int newChainLocation) {
 }
 
 int Goban::getFreeNeighborhood(int location) {
-
     return 0;
 }
 
 bool Goban::isOneLibertyOfChain(int location, int localChainId) {
     return false;
-}
-
-
-// All the stones are considered to be alive
-// Score is from the point of view of BLACK
-float Goban::score () {
-
-    return 0;
-}
-
-
-
-vector<int> Goban::getLegalLocations() {
-
-    vector<int> res;
-
-    return res;
-
 }
 
