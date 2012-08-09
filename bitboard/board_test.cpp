@@ -15,7 +15,12 @@ TEST(testCrash,basicMove) {
 
 // TODO
 TEST(testPlay, comprehensionInput) {
-
+    Goban testGoban = Goban(9);
+    testGoban.play(BLACK,PASSMOVE);
+    testGoban.play(WHITE,RESIGN);
+    //testGoban.play(WHITE,"A1");
+    //testGoban.play(BLACK,"J9");
+    //testGoban.play(WHITE,"E5");
 }
 
 // TODO

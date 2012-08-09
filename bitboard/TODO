@@ -4,8 +4,8 @@ PLANNING
 TODO LIST
 --------
 
-
-modifier nouveau goban pour avoir juste des fonctions vides
+changer le git pour avoir un seul libgtest + de quoi le creer
+bonus: creer libgtest dans le makefile s'il existe pas
 
 lister les tests
 
@@ -29,3 +29,5 @@ séparer en 2 parties mogoboard et bitboard
 supprimer l'ancien goban
 créer un premier test qui marche pour refboat
 
+09/08/12
+modifier nouveau goban pour avoir juste des fonctions vides
