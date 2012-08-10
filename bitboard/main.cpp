@@ -16,6 +16,9 @@ int main(int nb_args, char* args[]) {
 #endif 
 
     cerr << "just a board" << endl;
+    LBIT testBit = LBIT(1);
+    testBit.show();
+
 
     return 1;
 }

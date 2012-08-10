@@ -20,6 +20,21 @@ using namespace std;
 #define DEFAULT_KOMI 6.5
 
 
+class LBIT {
+
+    public:
+    LBIT();
+    LBIT(int val);
+    void show();
+
+    private:
+    long _val;
+    int _boardSize;
+
+
+};
+
+
 
 class Goban {
 
@@ -28,15 +43,19 @@ class Goban {
   Goban(int size);
 
   // usefull functions :)
-  void play(int player, int move);
+  void play(string player, string move);
   vector<int> getLegalLocations();
   void show();
   float score ();
   void clear();
 
+  // interface functions
+  LBIT moveToLBIT (string move);
+  string LBITToMove (LBIT move);
 
   // internal functions
  private:
+  void play(int player, LBIT move);
   void removeChain (int location);
   void placeStone (int location);
   void removeStone (int location);
@@ -80,8 +99,6 @@ class Goban {
 
 
 };
-
-
 
 
 

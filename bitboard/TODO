@@ -4,6 +4,10 @@ PLANNING
 TODO LIST
 --------
 
+
+commencer LBIT
+
+
 changer le git pour avoir un seul libgtest + de quoi le creer
 bonus: creer libgtest dans le makefile s'il existe pas
 

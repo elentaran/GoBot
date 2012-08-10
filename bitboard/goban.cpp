@@ -17,7 +17,7 @@ Goban::Goban(int size) {
 
 
 
-void Goban::play(int player, int move) {
+void Goban::play(string player, string move) {
 
 
 }
@@ -93,3 +93,19 @@ bool Goban::isOneLibertyOfChain(int location, int localChainId) {
     return false;
 }
 
+LBIT::LBIT() {
+    _val = 0;
+}
+
+LBIT::LBIT(int val) {
+    _val = val;
+}
+
+void LBIT::show() {
+    cerr << _val << endl;
+    for (int i=0; i < 65; i++) {
+        cerr << (_val >> i)%2 << " ";
+    } 
+    cerr << endl;
+
+}
