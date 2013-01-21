@@ -167,12 +167,12 @@ void Goban::clear(){
     init_directions();
 }
 
-    bool Goban::isOnBoard(int location) {
-        if ( xcoord(location) == 0 || xcoord(location) == _size+1 || ycoord(location) == 0 || ycoord(location) == _size+1)
-            return false;
-        else
-            return true;
-    }
+bool Goban::isOnBoard(int location) {
+    if ( xcoord(location) == 0 || xcoord(location) == _size+1 || ycoord(location) == 0 || ycoord(location) == _size+1)
+        return false;
+    else
+        return true;
+}
 
 int Goban::xcoord(int location) {
     return (location%_bigsize);
@@ -212,20 +212,20 @@ bool Goban::is_eye(int location) {
     return true;
 }
 
-    bool Goban::is_legal(int location) {
-        if (state[location] != EMPTY)
-            return false;
+bool Goban::is_legal(int location) {
+    if (state[location] != EMPTY)
+        return false;
 
-        if (location == _ko)
-            return false;
+    if (location == _ko)
+        return false;
 
-        if (is_suicide(location)) {
-            return false;
-        }
-
-
-        return true;
+    if (is_suicide(location)) {
+        return false;
     }
+
+
+    return true;
+}
 
 bool Goban::is_suicide(int v) {
     for (int i=0;i<4;i++) {
@@ -409,17 +409,17 @@ int Goban::getFreeNeighborhood(int location) {
     return res;
 }
 
-    bool Goban::isOneLibertyOfChain(int location, int localChainId) {
-        if (state[location] != EMPTY)
-            return false;
-
-        for (int i=0;i<4;i++) {
-            int templocation=location+directions[i];  
-            if (chainId[templocation] == localChainId)
-                return true;
-        }
+bool Goban::isOneLibertyOfChain(int location, int localChainId) {
+    if (state[location] != EMPTY)
         return false;
+
+    for (int i=0;i<4;i++) {
+        int templocation=location+directions[i];  
+        if (chainId[templocation] == localChainId)
+            return true;
     }
+    return false;
+}
 
 
 // All the stones are considered to be alive
@@ -627,25 +627,25 @@ int Goban::selectMoveMCexp() {
 
     int debut;
     float currentVal=0;
-    
+
     for (int i=0;i<nbFreeLocations;i++) {
         currentVal+=locationsValue[_isBlackTurn][freeLocations[i]];
         if (randomVal <= currentVal) {
             debut=i;
             break;
-//            return freeLocations[i];
+            //            return freeLocations[i];
         }
     }
- 
+
 
     for (int i=debut;i<nbFreeLocations;i++) {
         if (is_legal(freeLocations[i]) && !is_eye(freeLocations[i]))
             return freeLocations[i];
         else {
             locationsValue[_isBlackTurn][freeLocations[i]] = 0;
-    //        cerr << locationsValue[_isBlackTurn][freeLocations[i]] << endl;
-     //       assert(0);
-         }
+            //        cerr << locationsValue[_isBlackTurn][freeLocations[i]] << endl;
+            //       assert(0);
+        }
     }
 
     for (int i=0;i<debut;i++) {
@@ -656,7 +656,7 @@ int Goban::selectMoveMCexp() {
         }
     }
 
-   // assert(0);
+    // assert(0);
     return PASSMOVE;
 
 
@@ -687,50 +687,50 @@ void Goban::updateLocationsValue(int location) {
 
     // not legal
 
-        if (!is_legal(location)) {
-            locationsValue[_isBlackTurn][location] = 0;
-            return;
-        }
-    
+    if (!is_legal(location)) {
+        locationsValue[_isBlackTurn][location] = 0;
+        return;
+    }
+
 
     // eye
-        if (is_eye(location)) {
-            locationsValue[_isBlackTurn][location] = 0;
-            return;
-        }
-   
-        locationsValue[_isBlackTurn][location] = 10;
+    if (is_eye(location)) {
+        locationsValue[_isBlackTurn][location] = 0;
+        return;
+    }
+
+    locationsValue[_isBlackTurn][location] = 10;
 
     // save groups
-    
+
     //    if (save(location))
     //        locationsValue[_isBlackTurn][location] += 20000;
 
-   
+
     // capture groups
-    
-        if (capture(location))
-            locationsValue[_isBlackTurn][location] += 100;
-           
+
+    if (capture(location))
+        locationsValue[_isBlackTurn][location] += 100;
+
 
     // patterns
-        //if (patternValue[_isBlackTurn][getIndPattern(location)] > 0)
-         //   cerr << "pattern match" << endl;
-     //   locationsValue[_isBlackTurn][location] += patternValue[_isBlackTurn][getIndPattern(location)];
-    
-    
+    //if (patternValue[_isBlackTurn][getIndPattern(location)] > 0)
+    //   cerr << "pattern match" << endl;
+    //   locationsValue[_isBlackTurn][location] += patternValue[_isBlackTurn][getIndPattern(location)];
+
+
 
 }
 
 int Goban::getIndPattern(int location) {
 
-	int res=state[location+directions[0]];
-	for (int i=1; i<8 ; i++) {
-		res=res<<2;
-		res+=state[location+directions[i]];
-	}
-	assert (res < 65536);
-	return res;
+    int res=state[location+directions[0]];
+    for (int i=1; i<8 ; i++) {
+        res=res<<2;
+        res+=state[location+directions[i]];
+    }
+    assert (res < 65536);
+    return res;
 
 }
 
@@ -739,7 +739,7 @@ int Goban::getIndPattern(int location) {
 
 
 bool Goban::save(int location) {
- 
+
     int templocation;
     int nb_empty = 0;
     bool danger = false;
@@ -758,7 +758,7 @@ bool Goban::save(int location) {
 }
 
 bool Goban::capture(int location) {
- 
+
     int templocation;
     for (int i=0;i<4;i++) {
         templocation=location+directions[i];

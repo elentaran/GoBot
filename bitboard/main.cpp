@@ -1,24 +1,27 @@
 // GoBot
 
-#include "goban.h"
-#ifdef GTEST
-#include "gtest/gtest.h"
-#endif 
-using namespace std;
+#include "bitboard.h"
 
 
 
 int main(int nb_args, char* args[]) {
 
-#ifdef GTEST
-    testing::InitGoogleTest(&nb_args, args);
-    return RUN_ALL_TESTS();
-#endif 
+    /*
+    lbit testBit(4);
+    lbit testBit2(12);
+    cout << testBit << endl;
+    cout << testBit2 << endl;
+    lbit res = testBit & testBit2;
+    cout << (testBit & testBit2).toString() << endl;
+    cout << (testBit | testBit2).toString() << endl;
+    cout << (testBit ^ testBit2).toString() << endl;
+    cout << (~testBit).toString() << endl;
+    */
 
-    cerr << "just a board" << endl;
-    LBIT testBit = LBIT(1);
-    testBit.show();
-
+    bitboard atest;
+    cout << atest.toString() << endl;
+    atest.play(lbit(15));
+    cout << atest.toString() << endl;
 
     return 1;
 }

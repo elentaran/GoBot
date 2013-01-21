@@ -3,16 +3,10 @@ CC=g++
 SRC=$(wildcard *.cpp)
 HD=$(wildcard *.h)
 OBJ=$(SRC:.cpp=.o)
-HEADERPATH=-Igtest
-LIBPATH=-Lgtest
 LIBRARIES=-lpthread
 
 all: $(EXEC)
 
-
-test: 
-	$(MAKE) $(MAKEFILE) USEGTEST="-DGTEST=1" LIBRARIES=$(LIBRARIES)" -lgtest" 
-	./$(EXEC)
 
 debug: clean
 	$(MAKE) $(MAKEFILE) DEBUG="-g"
@@ -28,10 +22,10 @@ boost:
 
 
 $(EXEC): $(OBJ)
-	$(CC) $(OBJ) $(DEBUG) $(PROF) $(OPT) $(HEADERPATH) -o $(EXEC) $(BOOST_LIB) $(LIBPATH) $(LIBRARIES) 
+	$(CC) $(OBJ) $(DEBUG) $(PROF) -o $(EXEC) $(BOOST_LIB) $(LIBRARIES) 
 
 %.o: %.cpp $(HD)
-	$(CC) $(DEBUG) $(PROF) $(OPT) $(HEADERPATH) -c $< -o $@ $(USEGTEST)
+	$(CC) $(DEBUG) $(PROF) -c $< -o $@ 
 
 
 clean:

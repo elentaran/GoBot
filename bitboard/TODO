@@ -4,36 +4,51 @@ PLANNING
 TODO LIST
 --------
 
-
-commencer LBIT
-
-
-changer le git pour avoir un seul libgtest + de quoi le creer
-bonus: creer libgtest dans le makefile s'il existe pas
-
-
-lister les tests
+- affichage lbit sous forme board
+- affichage group
+- connect group
+- remove group
+- update liberties
+- test bitboard
 
 
-testSets
-    ecrire les tests
 
+
+OBJECTIF
+-------
+MoGo (pc supelec)
+9x9: 20 000 simu / s 
+19x19: 5 000 simu / s
 
 
 DONE
 ----
 
-testSets
-    se renseigner
-    en choisir un -> googletest
+18/01/2013
 
-07/08/12
-séparer en 2 parties mogoboard et bitboard
+17/01/2014
+creation de lbit
+commencement bitboard:
+    bitboard()
+    creategroup()
+
+16/01/2013
+suppression de toute la partie test
+recommencement du bitboard à 0
+realisation des objectifs
+
+09/08/12
+modifier nouveau goban pour avoir juste des fonctions vides
+makefile: make test lance les tests
 
 08/08/12
 supprimer l'ancien goban
 créer un premier test qui marche pour refboat
 
-09/08/12
-modifier nouveau goban pour avoir juste des fonctions vides
-makefile: make test lance les tests
+07/08/12
+séparer en 2 parties mogoboard et bitboard
+
+testSets
+    se renseigner
+    en choisir un -> googletest
+
