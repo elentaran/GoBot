@@ -19,9 +19,13 @@ int main(int nb_args, char* args[]) {
     */
 
     bitboard atest;
-    cout << atest.toString() << endl;
-    atest.play(lbit(15));
-    cout << atest.toString() << endl;
+//    cout << atest.toString() << endl;
+    atest.showBoard();
+    atest.play(lbit(15),BLACK);
+    atest.showBoard();
+    atest.play(lbit(16),BLACK);
+    atest.showBoard();
+    //cout << atest.toString() << endl;
 
     return 1;
 }

@@ -41,7 +41,11 @@ int bitboard::initDirection() {
 }
 
 
-int bitboard::play(lbit move) {
+int bitboard::play(lbit move, int nextPlayer) {
+
+
+    if (nextPlayer >= 0) _nextPlayer = nextPlayer;
+
     // add stone on the board
     _stones[_nextPlayer] = _stones[_nextPlayer] | move;
     
@@ -49,17 +53,25 @@ int bitboard::play(lbit move) {
     int numGroup1 = createGroup(move);
 
     // connect group
+    // TODO problem join with itself and numgroup change in the middle of for and numgroup has to change if last
+    // improvement idea: lib AND blackstones
+    // -> isnull: nothing to do
+    // -> !isnull: get group under the bits, connnect them
     for (int i=0; i<_nbGroup[_nextPlayer]; i++) {
         if (!((_groups[_nextPlayer][numGroup1])._lib & _groups[_nextPlayer][i]._stones).isZero()) {
             connectGroup(numGroup1,i);
         }
     }
     
+    
 
     // update libertes and capture groups
 
 
     // update legal moves
+
+    // update _nextPlayer
+    _nextPlayer = !_nextPlayer;
     
 }
 
@@ -125,6 +137,24 @@ string bitboard::toString() {
     return res.str();
 }
 
+void bitboard::showBoard() {
+    cout << "board:" << endl;
+    cout << toString() << endl;
+    cout << "black group" << endl;
+    for (int i=0; i<_nbGroup[BLACK]; i++) {
+        cout << "num: " << i << endl;
+        cout << _groups[BLACK][i]._stones.toString() << endl;
+        cout << _groups[BLACK][i]._lib.toString() << endl;
+        cout << endl;
+    }
+    cout << "white group" << endl;
+    for (int i=0; i<_nbGroup[WHITE]; i++) {
+        cout << "num: " << i << endl;
+        cout << _groups[WHITE][i]._stones.toString() << endl;
+        cout << _groups[WHITE][i]._lib.toString() << endl;
+        cout << endl;
+    }
+}
 
 group::group(lbit stones, lbit lib, int num) {
     _stones = stones;

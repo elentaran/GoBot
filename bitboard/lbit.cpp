@@ -31,8 +31,9 @@ string lbit::toString() {
         for (int j=0; j<INTBIT; j++) {
             res << (a & 0x1);
             a = a >> 1;
+            if (((i*INTBIT+j)%LBOARDSIZE) == (LBOARDSIZE-1))
+                res << endl;
         }
-        res << endl;
     }
     return res.str();
 }

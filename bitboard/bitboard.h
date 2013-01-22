@@ -43,7 +43,7 @@ class bitboard {
         int initEdges();
         int initDirection();
         bool isLegal(lbit move);
-        int play(lbit move);
+        int play(lbit move, int nextPlayer=-1);
         lbit getLib(lbit move); 
         int createGroup(lbit move);
         int connectGroup(int num1, int num2); 
@@ -51,6 +51,7 @@ class bitboard {
         int score();
         int monteCarlo();
         string toString();
+        void showBoard();
 
 };
 
