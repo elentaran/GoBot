@@ -2,6 +2,8 @@
 #include <iostream>
 #include <sstream>
 #include <climits>
+#include <cassert>
+#include <cstdlib>
 
 using namespace std;
 

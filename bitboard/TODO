@@ -4,14 +4,26 @@ PLANNING
 TODO LIST
 --------
 
-- affichage lbit sous forme board
-- affichage group
-- connect group
-- remove group
-- update liberties
-- test bitboard
+
+- affichage dans le bon sens
+
+- handle ko
+- handle superko
+
+- score
+
+- monte carlo
+    legal move
+    interesting move
+
+- connect kgs
+- connect goserver
+
+improve perf
+uct
 
 
+    
 
 
 OBJECTIF
@@ -23,6 +35,15 @@ MoGo (pc supelec)
 
 DONE
 ----
+
+21/02/2013
+affichage lbit sous forme board
+affichage group
+connect group
+remove liberties
+remove group
+update liberties
+connect to gogui
 
 
 17/01/2013

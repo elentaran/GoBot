@@ -33,6 +33,8 @@ string lbit::toString() {
             a = a >> 1;
             if (((i*INTBIT+j)%LBOARDSIZE) == (LBOARDSIZE-1))
                 res << endl;
+            if ((i*INTBIT+j) >= (NBCASES-1))
+                return res.str();
         }
     }
     return res.str();
