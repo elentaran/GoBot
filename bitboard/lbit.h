@@ -4,6 +4,7 @@
 #include <climits>
 #include <cassert>
 #include <cstdlib>
+#include <stdio.h>
 
 using namespace std;
 
@@ -11,31 +12,39 @@ using namespace std;
 #define MAXGROUP (BOARDSIZE*BOARDSIZE/2)
 #define LBOARDSIZE (BOARDSIZE+2)
 #define NBCASES (LBOARDSIZE*LBOARDSIZE)
-#define INTBIT (sizeof(int)*CHAR_BIT)
-#define NBINT ((NBCASES/INTBIT)+1)
+#define INTBIT (sizeof(uint)*CHAR_BIT)
+#define NBINT (((NBCASES+2)/INTBIT)+1) // +2: one bit for passmove, one bit for resign
 //const int NBINT = ((NBCASES/(sizeof(int)*CHAR_BIT))+1);
 //#define NBLL ceil((float)NBCASES/(sizeof(long long)*CHAR_BIT))
 
-#define NOBIT   -1
-#define MULBIT  -2
+#define PASSMOVE NBCASES+1
+#define RESIGN   NBCASES+2
 
 class lbit {
     private:
-        int _val[NBINT];
-        int _indice;
+        uint _val[NBINT];
 
     public:
         lbit();
-        lbit(int val[NBINT]);
+        lbit(uint val[NBINT]);
         lbit(int val);
-        int getInd();
         string toString();
+        string toStringBit();
         friend lbit operator | (const lbit lbit1, const lbit lbit2);
         friend lbit operator ^ (const lbit lbit1, const lbit lbit2);
         friend lbit operator & (const lbit lbit1, const lbit lbit2);
         friend lbit operator ~ (const lbit lbit1);
+        friend lbit operator << (const lbit lbit1, int nbShift);
+        friend lbit operator >> (const lbit lbit1, int nbShift);
         int operator [](int indice);
+
         bool isZero();
+        int popcount();
+
+        lbit dec();
+        lbit getRand();
+
+        int toInt();
 
 };
 

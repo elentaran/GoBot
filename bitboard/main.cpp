@@ -4,7 +4,7 @@
 #include "GTPengine.h"
 
 int testlbit() {
-    lbit testBit(4);
+    lbit testBit(36);
     lbit testBit2(12);
     cout << testBit << endl;
     cout << testBit2 << endl;
@@ -13,6 +13,27 @@ int testlbit() {
     cout << (testBit | testBit2).toString() << endl;
     cout << (testBit ^ testBit2).toString() << endl;
     cout << (~testBit).toString() << endl;
+    cout << (testBit.popcount()) << endl;
+    cout << (~testBit).popcount() << endl;
+    testBit = ~testBit;
+    cout << testBit << endl;
+    cout << (testBit << 4).toString() << endl;
+    cout << (testBit << 22).toString() << endl;
+    cout << ((testBit >> 22) >> 22).toString() << endl;
+    testBit = ~testBit;
+    cout << testBit << endl;
+    cout << "dec" << endl;
+    cout << (testBit.dec()).toString() << endl;
+    testBit = ~testBit;
+    cout << testBit << endl;
+    cout << "rand" << endl;
+    cout << (testBit.getRand()).toString() << endl;
+    cout << (testBit.getRand().toInt()) << endl;
+    testBit = ~testBit;
+    cout << (testBit.toInt()) << endl;
+    cout << (testBit2.toInt()) << endl;
+    cout << ((new lbit(59))->toInt()) << endl;
+
     return 1;
 }
 
@@ -92,15 +113,43 @@ int testBitboardCapture2() {
     atest.showBoard();
 
 
-    atest.play(38,BLACK);
+    //atest.play(38,BLACK);
+    //atest.showBoard();
+    return 1;
+}
+
+int testBitboardKo() {
+    bitboard atest;
+    atest.play(24,BLACK);
+    atest.play(26,BLACK);
+    atest.play(14,BLACK);
+    atest.play(36,BLACK);
+
+    atest.play(15,WHITE);
+    atest.play(27,WHITE);
+    atest.play(37,WHITE);
     atest.showBoard();
+    atest.play(25,WHITE);
+    atest.showBoard();
+    return 1;
+}
+
+int testBitboardIO() {
+    bitboard atest;
+    cerr << atest.moveToString(lbit(15)) << endl;
+
+    cerr << atest.moveToInt("A1") << endl;
+    cerr << lbit(atest.moveToInt("A1")).toString() << endl;
+    cerr << atest.moveToString(lbit(atest.moveToInt("A1"))) << endl;
+    cerr << atest.moveToString(lbit(atest.moveToInt("E5"))) << endl;
     return 1;
 }
 
 int main(int nb_args, char* args[]) {
 
+    srand(time(0));
 
-    // testlbit();
+    //testlbit();
 
     // testBitboardCreate();
     
@@ -109,6 +158,12 @@ int main(int nb_args, char* args[]) {
 
     //testBitboardCapture();
     //testBitboardCapture2();
+
+    //testBitboardKo();
+    //testBitboardIO();
+    
+   
+    
     GTPengine global_GTPengine(nb_args,args);
     global_GTPengine.launch();
     return 1;

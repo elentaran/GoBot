@@ -35,7 +35,8 @@ void move_generator::ponder() {
 
 
 string move_generator::genmove(string player) {
-    return "PASS";
+    int iplayer=_gameGoban.playerToInt(player);
+    return _gameGoban.genmove(iplayer);
 }
 
 
@@ -44,7 +45,7 @@ string move_generator::genmove(string player) {
 void move_generator::play(string player, string move) {
     int iplayer=_gameGoban.playerToInt(player);
     int imove=_gameGoban.moveToInt(move);
-    _gameGoban.play(imove,iplayer);
+    _gameGoban.play(lbit(imove),iplayer);
 }
 
 

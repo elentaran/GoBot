@@ -5,21 +5,22 @@ TODO LIST
 --------
 
 
-- affichage dans le bon sens
-
-- handle ko
-- handle superko
+- connect kgs
 
 - score
 
+
 - monte carlo
-    legal move
     interesting move
+
 
 - connect kgs
 - connect goserver
 
+- handle superko
+
 improve perf
+
 uct
 
 
@@ -35,6 +36,31 @@ MoGo (pc supelec)
 
 DONE
 ----
+
+04/03/2013
+convert lbit to int
+convert int to string
+problem suicide une pierre (equivalent probleme oeil?)
+debug
+handle passmmove, resign
+probleme ko
+
+26/02/2013
+isOne
+    builtin_popcount
+recalculé
+handle ko
+get a random bit
+
+25/02/2013
+shiftleft
+shigtright
+changer symbole
+getsurrounding for lbit
+
+22/02/2013
+affichage dans le bon sens
+debut legal move
 
 21/02/2013
 affichage lbit sous forme board
