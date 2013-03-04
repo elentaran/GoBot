@@ -97,23 +97,23 @@ int Goban::playerToInt(string player) {
 }
 
 
-    string Goban::intToPlayer(int player) {
-        if (player == 1)
-            return "B";
-        if (player == 0)
-            return "W";
-        cerr << "player non existant"<< endl;
-        assert(0);
-    }
+string Goban::intToPlayer(int player) {
+    if (player == 1)
+        return "B";
+    if (player == 0)
+        return "W";
+    cerr << "player non existant"<< endl;
+    assert(0);
+}
 
-    string Goban::intToPlayer() {
-        if (_isBlackTurn == 1)
-            return "B";
-        if (_isBlackTurn == 0)
-            return "W";
-        cerr << "player non existant"<< endl;
-        assert(0);
-    }
+string Goban::intToPlayer() {
+    if (_isBlackTurn == 1)
+        return "B";
+    if (_isBlackTurn == 0)
+        return "W";
+    cerr << "player non existant"<< endl;
+    assert(0);
+}
 
 
 void Goban::show(){
