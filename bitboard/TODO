@@ -10,6 +10,7 @@ TODO LIST
 - score
 
 - monte carlo
+    définir oeil
     interesting move
 
 
@@ -17,6 +18,8 @@ TODO LIST
 - connect goserver
 
 - handle superko
+
+- handle pattern
 
 improve perf
 
